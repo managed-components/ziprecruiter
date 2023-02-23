@@ -1,6 +1,10 @@
 import { ComponentSettings, Manager, MCEvent } from '@managed-components/types'
 
-export const eventHandler = async (eventType: string, event: MCEvent, settings: ComponentSettings) => {
+export const eventHandler = async (
+  eventType: string,
+  event: MCEvent,
+  settings: ComponentSettings
+) => {
   const { client, payload } = event
 
   const params = new URLSearchParams(payload).toString()
@@ -10,7 +14,6 @@ export const eventHandler = async (eventType: string, event: MCEvent, settings: 
     mode: 'no-cors',
     keepalive: true,
   })
-
 }
 
 export default async function (manager: Manager, settings: ComponentSettings) {

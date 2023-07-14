@@ -5,9 +5,9 @@ export const eventHandler = async (
   event: MCEvent,
   settings: ComponentSettings
 ) => {
-  const { client, payload } = event
+  const { client } = event
 
-  const params = new URLSearchParams(payload).toString()
+  const params = new URLSearchParams(settings).toString()
 
   client.fetch(`https://track.ziprecruiter.com/conversion?${params}`, {
     credentials: 'include',

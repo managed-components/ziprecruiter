@@ -7,7 +7,7 @@ export const eventHandler = async (
 ) => {
   const { client, payload } = event
 
-  const params = new URLSearchParams(payload).toString()
+  const params = new URLSearchParams({ ...settings, ...payload }).toString()
 
   client.fetch(`https://track.ziprecruiter.com/conversion?${params}`, {
     credentials: 'include',
